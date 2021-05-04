@@ -1,0 +1,73 @@
+/* For max-width: 768px */
+
+/* Navigation */
+
+#main-nav .social {
+    display: none;
+}
+
+#main-nav .container {
+    grid-template-columns: 1fr;
+    grid-gap: 1.2rem;
+}
+
+/* Need to justify-self instead of justify-content since ul is set to justify-self in style.css */
+
+#main-nav .logo, #main-nav ul {
+    justify-self: center;
+}
+
+#main-nav ul li a {
+    padding: 0.5rem;
+}
+
+/* Change the grid to only show 2 instead of 3 */
+
+#home-articles .articles-container {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#home-articles .articles-container .card {
+    grid-template-rows: 1fr;
+}
+
+/* Removes the span from the first and last child element, and also changes the grid-template to 1fr instead of the internal (2, 1fr) */
+
+#home-articles .articles-container>*:first-child, #home-articles .articles-container>*:last-child {
+    grid-template-columns: 1fr;
+    grid-column: 1;
+}
+
+/* #home-articles .articles-container>*:nth-child(2), #home-articles .articles-container>*:nth-child(6) {
+    align-items: center
+} */
+
+/* For smaller devices like iPhone X */
+
+@media(max-width: 600px) {
+    /* Stack grid items */
+    #showcase .showcase-container, #home-articles .articles-container, #main-footer .footer-container {
+        grid-template-columns: 1fr;
+    }
+    #main-footer .footer-container>*:last-child {
+        grid-column: 1;
+    }
+    /* Add a dotted border under specific elements */
+    #main-footer .container>*:first-child, #main-footer .container>*:nth-child(2) {
+        border-bottom: #555 dotted 1px;
+        padding-bottom: 1rem;
+    }
+    .page-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .page-container>*:first-child {
+        grid-row: 1;
+    }
+    .l-heading {
+        font-size: 2rem;
+    }
+    .list li {
+        width: 100%;
+    }
+}
